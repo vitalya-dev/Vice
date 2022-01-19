@@ -37,14 +37,18 @@ var world_map = """
 #..................########....#
 #..............................#
 #..............................#
-################################ 
-"""
+################################
+""".replace("\n", "").strip_edges()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	yield
-	get_tree().quit()
+	print("=======================================================")
+	print(world_map)
+	print("=======================================================")
 
+func _input(ev):
+	if ev.is_action_pressed("ui_cancel"):
+		get_tree().quit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
